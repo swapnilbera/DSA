@@ -37,24 +37,47 @@ int main() {
     return 0;
 }
 */
-#include <bits/stdc++.h>
+//sort 0,1
+#include<iostream>
 using namespace std;
-int main() {
-    int arr[6]={1,0,0,1,1,0};
-    int i=0;
-    int j=5;
-    while(i<j){
-      if(arr[i]==0)
-          i++;
-      if(arr[j]==1)
-          j--;
-      if(arr[i]==1 && arr[j]==0)
-          swap(arr[i],arr[j]);
+
+void printArray(int arr[], int n) {
+    for(int i=0; i<n; i++) {
+        cout << arr[i] << " ";
     }
-  for(int k=0;k<6;k++){
-    cout<<arr[k]<<" ";
-  }
-  
-  
+    cout << endl;
+}
+
+void sortOne(int arr[], int n) {
+
+    int left = 0, right = n-1;
+
+    while(left < right) {
+
+        while(arr[left] == 0 && left < right )  {
+            left++;
+        }
+
+        while(arr[right]==1 && left < right){
+            right--;
+        }
+        if(left<right)
+        {
+            swap(arr[left], arr[right]);
+            left++;
+            right--;
+        }
+    }
+
+}
+
+int main() {
+
+    int arr[8] = {1,1,0,0,0,0,1,0};
+
+    sortOne(arr, 8);
+    printArray(arr, 8);
+
+
     return 0;
 }
