@@ -1,0 +1,17 @@
+//ip- 421
+//op- four two one
+//using recursion
+public class dsa {
+    public static String arr[]={"Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
+    public static void main(String[] args) {
+            func(421);
+    }
+
+    private static void func(int i) {
+
+        if(i==0)
+            return;
+        func(i/10);
+        System.out.print(arr[i%10]+" ");
+    }
+}
