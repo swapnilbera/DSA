@@ -1,0 +1,20 @@
+//reverse string using recusrion
+public class dsa {
+    public static void main(String[] args) {
+        StringBuilder arr=new StringBuilder("swapnil");
+        func(arr,0,6);
+        System.out.println(arr);
+    }
+    private static void func(StringBuilder arr,int start,int end) {
+        if(start>end)
+            return;
+        swap(arr,start,end);
+        func(arr,++start,--end);
+    }
+
+    private static void swap(StringBuilder arr,int start,int end) {
+        char temp=arr.charAt(start);
+        arr.setCharAt(start, arr.charAt(end)); // Use setCharAt to modify characters
+        arr.setCharAt(end, temp);
+    }
+}
