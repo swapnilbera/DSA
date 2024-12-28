@@ -18,3 +18,21 @@ public class dsa {
         arr.setCharAt(end, temp);
     }
 }
+
+//Reverse a String
+
+public class dsa {
+    public static void main(String[] args) {
+        StringBuilder arr=new StringBuilder("aaabala");
+        System.out.println(func(arr,0,6));
+    }
+    private static int func(StringBuilder arr,int start,int end) {
+        if(start>end)
+            return 1;
+        if(arr.charAt(start)!=arr.charAt(end))
+            return 0;
+        return func(arr,++start,--end);
+    }
+
+}
+
