@@ -13,5 +13,22 @@ public class dsa {
         else
             return func(arr,key,index+1,size-1);
     }
+}
 
+//binary search using RECURSION
+public class dsa {
+    public static void main(String[] args) {
+            int arr[]={1,2,10,11,12};
+        System.out.println(func(arr,0,4,11));
+    }
+    private static int func(int[] arr,int start,int end,int key) {
+        if(start>end)
+            return 0;
+        int mid=start+(end-start)/2;
+        if(arr[mid]==key)
+            return 1;
+        if (arr[mid]>key)
+            return func(arr,start,mid-1,key);
+        return func(arr,mid+1,end,key);
+    }
 }
