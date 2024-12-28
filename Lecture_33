@@ -1,0 +1,17 @@
+//Linear Search using Recursion
+public class dsa {
+    public static void main(String[] args) {
+            int arr[]={1,2,10,4,5};
+        System.out.println(func(arr,40,0,5));
+    }
+
+    private static int func(int[] arr,int key,int index,int size) {
+        if(size==0|| size<0)
+            return 0;
+        if(arr[index]==key)
+            return 1;
+        else
+            return func(arr,key,index+1,size-1);
+    }
+
+}
