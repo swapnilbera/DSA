@@ -1,0 +1,69 @@
+//QUICK SORT
+public class dsa {
+    public static void main(String[] args) {
+        int arr[] = {2, 1, 4, 3, 6, 7};
+
+        System.out.println("Array before sorting:");
+        for (int i = 0; i < 6; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+
+        func(arr, 0, arr.length - 1);
+
+        System.out.println("Array after sorting:");
+        for (int i = 0; i < 6; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    private static void func(int arr[], int start, int end) {
+        // Base case
+        if (start >= end) {
+            return;
+        }
+        // Partition
+        int p = partition(arr, start, end);
+        func(arr, start, p - 1); // Recur for left partition
+        func(arr, p + 1, end);  // Recur for right partition
+    }
+
+    private static int partition(int[] arr, int start, int end) {
+        int count = 0;
+
+        // Count elements smaller than or equal to pivot
+        for (int i = start + 1; i <= end; i++) {
+            if (arr[start] >= arr[i])
+                count++;
+        }
+
+        // Determine pivot index
+        int index = start + count;
+
+        // Swap pivot to its correct position
+        swap1(arr, start, index);
+
+        // Segregate elements around pivot
+        int left = start, right = end;
+        while (left < index && right > index) {
+            while (left < index && arr[left] <= arr[index]) {
+                left++;
+            }
+            while (right > index && arr[right] > arr[index]) {
+                right--;
+            }
+            if (left < index && right > index) {
+                swap1(arr, left, right);
+            }
+        }
+
+        return index; // Return pivot index
+    }
+
+    private static void swap1(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
