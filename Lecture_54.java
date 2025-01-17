@@ -18,10 +18,11 @@ public class stack_array {
 class stack{
     int arr[];
     int size;
-    int top=-1;
+    int top;
     void setsize(int size){
         this.size=size;
         arr=new int[size];
+        int top=-1;
     }
     void push(int element){
         if(top!=size-1){
