@@ -48,9 +48,34 @@ public class lecture_62 {
         }
 
     }
-
+    public static tree cratefrom_level_order() {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Data For Node: ");
+        int data=sc.nextInt();
+        tree node=new tree(data);
+        Queue<tree> queue=new LinkedList<>();
+        queue.add(node);
+        while(!queue.isEmpty()){
+            tree temp=queue.remove();
+            System.out.println("Enter Data For left child of  "+temp.data);
+            int leftdata=sc.nextInt();
+            if(leftdata!=-1){
+               temp.left=new tree(leftdata);
+               queue.add(temp.left);
+            }
+            System.out.println("Enter Data For right child of  "+temp.data);
+            int rightdata=sc.nextInt();
+            if(rightdata!=-1){
+                temp.right=new tree(rightdata);
+                queue.add(temp.right);
+            }
+        }
+        return node;
+    }
     public static void main(String[] args) {
-        tree main_tree=create_tree();
+        //tree main_tree=create_tree();
+        tree main_tree=cratefrom_level_order();
         tree_level_order_traversal(main_tree);
     }
+
 }
